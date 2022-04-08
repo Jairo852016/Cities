@@ -1,0 +1,39 @@
+# docker-compose.yml
+
+version: "3.8"
+
+services:
+
+  database:
+    container_name: db
+    environment:
+      - POSTGRES_DB=cities
+      - POSTGRES_USER=jairo
+      - POSTGRES_PASSWORD=jairo
+    image: postgres:14.1
+    ports:
+      - "5433:5432"
+    volumes:
+      - database:/var/lib/postgresql/data
+
+  server:
+    build:
+      context: ./server
+    container_name: server
+    depends_on:
+      - database
+    environment:
+      - SQL_ENGINE=django.db.backends.postgresql
+      - SQL_DATABASE=cities
+      - SQL_USER=jairo
+      - SQL_PASSWORD=jairo
+      - SQL_HOST=db
+      - SQL_PORT=5432
+    command: [ "bash", "start.sh" ]
+    ports:
+      - 8003:8000
+    volumes:
+      - ./server:/usr/src/app
+
+volumes:
+  database:

@@ -1,0 +1,58 @@
+[
+  {
+	"model": "cities.Cities",
+    "fields": {
+		"citie": "Bogotá",
+		"lat": 4.6126,
+		"lng": -74.0705,
+		"country": "Colombia",
+		"iso2": "CO",
+		"admin_name": "Bogotá",
+		"capital": "primary",
+		"population": 9464000,
+		"population_proper": 7963000
+	}
+  },
+  {
+	"model": "cities.Cities",
+    "fields": {
+		"citie": "Medellín",
+		"lat": 6.2447,
+		"lng": -75.5748,
+		"country": "Colombia",
+		"iso2": "CO",
+		"admin_name": "Antioquia",
+		"capital": "admin",
+		"population": 2529403,
+		"population_proper": 2529403
+	}
+  },
+  {
+	"model": "cities.Cities",
+    "fields": {
+		"citie": "Cali",
+		"lat": 3.44,
+		"lng": -76.5197,
+		"country": "Colombia",
+		"iso2": "CO",
+		"admin_name": "Valle del Cauca",
+		"capital": "admin",
+		"population": 2471474,
+		"population_proper": 2471474
+	}
+  },
+  {
+	"model": "cities.Cities",
+    "fields": {  
+		"citie": "Barranquilla",
+		"lat": 10.9639,
+		"lng": -74.7964,
+		"country": "Colombia",
+		"iso2": "CO",
+		"admin_name": "Atlántico",
+		"capital": "admin",
+		"population": 1274250,
+		"population_proper": 1274250
+	}
+  }
+ ]
