@@ -1,0 +1,14 @@
+[
+    {
+        "id": "ecf8760a-d139-4d63-83bc-6ddbac9f87dc",
+        "citie" : "Barranquilla",
+        "lat" : "4.6126",
+        "lng" : "-74.0705",
+        "country" : "Colombia1",
+        "iso2" : "CO",
+        "admin_name" : "Atlántico Jairo prueba", 
+        "capital" : "primary",
+        "population" : 9464000,
+        "population_proper" : 7963000
+    }
+]

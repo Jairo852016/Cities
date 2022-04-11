@@ -1,0 +1,17 @@
+[
+    {
+      "model": "cities.Cities",
+      "fields": {
+            "id": "4bef57b7-7dc1-41ae-9f41-027ead4de652",
+            "citie" : "Bogota",
+            "lat" : "4.6126",
+            "lng" : "-74.0705",
+            "country" : "Colombia",
+            "iso2" : "CO",
+            "admin_name" : "Bogotá", 
+            "capital" : "primary",
+            "population": 9464000,
+            "population_proper": 7963000
+      }
+    }
+]

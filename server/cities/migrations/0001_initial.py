@@ -23,8 +23,8 @@ class Migration(migrations.Migration):
                 ('iso2', models.CharField(max_length=3)),
                 ('admin_name', models.CharField(max_length=255)),
                 ('capital', models.CharField(max_length=255)),
-                ('population', models.IntegerField()),
-                ('population_proper', models.IntegerField()),
+                ('population', models.IntegerField(blank=True , null=True)),
+                ('population_proper', models.IntegerField(blank=True , null=True)),
             ],
         ),
     ]

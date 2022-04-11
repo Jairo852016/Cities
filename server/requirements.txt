@@ -3,3 +3,8 @@ django-filter==21.1
 djangorestframework==3.12.4
 elasticsearch-dsl==7.4.0
 psycopg2-binary==2.9.2
+django-debug-toolbar==3.2.4
+django-cors-headers==3.10.0
+gunicorn==20.1.0 
+django-import-export==2.6.0
+tablib==3.0.0

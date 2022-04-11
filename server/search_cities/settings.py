@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 import os
+import sys
+
+from elasticsearch_dsl import connections
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +41,9 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'django_filters',
+    'debug_toolbar',
+    'corsheaders',
+
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,9 +51,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',#AGG
+    'import_export',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -132,7 +143,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
+STATIC_ROOT = Path(BASE_DIR / 'static')
+
+STATIC_URL = '/staticfiles/' # changed
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -142,3 +156,28 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
 }
+
+
+def custom_show_toolbar(request):
+    return bool(DEBUG)
+
+
+DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": custom_show_toolbar}
+
+TESTING_MODE = 'test' in sys.argv
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000"
+]
+
+def get_env_list(key, default=None): 
+    env = os.getenv(key)
+    if env:
+        return env.split(',')
+    return default
+
+
+ES_HOSTS = get_env_list('ES_HOSTS', ['http://localhost:9200']) 
+
+ES_CONNECTION = connections.create_connection(hosts=ES_HOSTS) 
