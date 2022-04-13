@@ -1,6 +1,6 @@
 
 # Project Cities 
-> Short blurb about what your product does.
+> Project that indexes a CSV file to PostgreSQL and Elasticsearch.
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 ## Installation guide
@@ -83,4 +83,4 @@
             └── start.sh
 
 
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://www.linkedin.com/in/jairo-perez-502211102/
