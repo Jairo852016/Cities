@@ -23,6 +23,59 @@ Start cloning the repository:
 
 ```
 
+Enter the Cities folder, we build the containers and they are uploaded
+
+```sh
+ cd Cities
+ docker-compose -f docker-compose.yml up -d --build
+
+```
+
+Run the Docker ps command and validate that the containers are up
+
+```sh
+    docker ps
+
+```
+To validate that the database was migrated, execute the following command and we execute an SQL statement to see the structure of the table
+
+```sh
+     docker-compose exec database psql cities -U jairo
+
+     SELECT * FROM cities_cities;
+
+```
+
+Now we create the elasticsearch index
+
+```sh
+     docker-compose exec django python manage.py create_index
+
+```
+We create the super user of the Django administration and validate by entering the administration page http://localhost:8003/admin/.
+Here you can review all the models exposed in Django
+
+```sh
+    docker-compose exec django python manage.py createsuperuser
+
+```
+
+To perform the data load we enter the following url.
+```sh
+    http://localhost:8003/upload/
+
+```
+We enter the data in the csv data model and the data begins to be registered in the database, validating by the name of the city.
+
+after finishing the load in the database, start with the indexing in Elasticsearch
+
+
+
+
+
+
+
+
 ## Project Organization
     
     
