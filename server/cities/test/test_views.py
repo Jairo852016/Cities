@@ -1,20 +1,29 @@
 # server/cities/tests/test_views.py
-import json 
-import pathlib 
-from unittest.mock import patch
-import uuid 
 
+#Django
+from django.contrib.postgres.search import SearchVector
 from django.conf import settings 
 
+#Models
+from cities.models import Cities, CitiesSearchWord
+
+#Serializer
+from cities.serializers import CitiesSerializer 
+
+#Mapping
+from cities.constants import ES_MAPPING
+
+#Elasticsearch
 from elasticsearch_dsl import connections
 from rest_framework.test import APIClient, APITestCase
 
-from cities.constants import ES_MAPPING
+#Json, patlib, uuid
+import json 
+import pathlib 
+import uuid 
 
-from cities.models import Cities, CitiesSearchWord
-from cities.serializers import CitiesSerializer 
-from django.contrib.postgres.search import SearchVector
-
+#Test
+from unittest.mock import patch
 
 
 
@@ -148,37 +157,6 @@ class ViewTests(APITestCase):
 
 
         
-
-
-
-
-    #def test_empty_query_returns_everything(self):
-    #    citie = Cities.objects.create(
-            
-    #        citie = 'Bogotá',
-    #        lat =4.6126,
-    #        lng = -74.0705,
-    #        country = 'Colombia',
-    #        iso2 = 'CO',
-    #        admin_name = 'Bogotá', 
-    #        capital= 'primary',
-    #        population= 9464000,
-    #        population_proper= 7963000
-    #    )
-    #    client = APIClient()
-    #    response = client.get('/api/v1/cities/cities/')
-    #    self.assertJSONEqual(response.content, [{
-    #        'id': str(citie.id),
-    #        'citie' : 'Bogotá',
-    #        'lat' : '4.6126',
-    #        'lng' : '-74.0705',
-    #        'country' : 'Colombia',
-    #        'iso2' : 'CO',
-    #        'admin_name' : 'Bogotá', 
-    #        'capital' : 'primary',
-    #        'population': 9464000,
-    #        'population_proper': 7963000,   
-    #    }])
 class ESViewTests(APITestCase):
     def setUp(self):
         self.index = f'test-cities-{uuid.uuid4()}'
@@ -256,7 +234,7 @@ class ESViewTests(APITestCase):
     def test_suggests_words_for_spelling_mistakes(self):
         response = self.client.get('/api/v1/cities/es-cities-search-words/?query=Bogati')
         # Suggestions are: "Bogati" (freq=2) 
-        print(response.data)
+        #print(response.data)
         self.assertEqual(1, len(response.data))
         self.assertEqual('bogota', response.data[0]['word'])
         

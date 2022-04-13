@@ -1,11 +1,15 @@
 # server/cities/filter.py
 
+#Django
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 from django.db.models import CharField, F, Func, Q, TextField, Value
 
+#Django REST Framework
 from django_filters.rest_framework import CharFilter, FilterSet
 
+#Models
 from .models import Cities, CitiesSearchWord
+
 #Este código transcribe los parámetros de cadena de consulta en consultas SQL a través de Django ORM.
 class CitiesFilterSet(FilterSet):
     query = CharFilter(method='filter_query')

@@ -177,7 +177,30 @@ def get_env_list(key, default=None):
         return env.split(',')
     return default
 
-
+#Elasticsearch
 ES_HOSTS = get_env_list('ES_HOSTS', ['http://localhost:9200']) 
 
 ES_CONNECTION = connections.create_connection(hosts=ES_HOSTS) 
+
+#Media
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+# Celery
+
+INSTALLED_APPS += ['cities.taskapp.celery.CeleryAppConfig']
+if USE_TZ:
+    CELERY_TIMEZONE = TIME_ZONE
+CELERY_BROKER_URL = 'redis://startupy-redis-1:6379/0'  # Docker
+CELERY_RESULT_BACKEND = CELERY_BROKER_URL
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERYD_TASK_TIME_LIMIT = 5 * 60
+CELERYD_TASK_SOFT_TIME_LIMIT = 60
+
+
+
+
+
+

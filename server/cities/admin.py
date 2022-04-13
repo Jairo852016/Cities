@@ -16,9 +16,9 @@ class CitiesResource(resources.ModelResource):
 class citiesAdmin(ImportExportModelAdmin):
     fields = ('id', 'citie', 'lat', 'lng', 'country', 'iso2', 'admin_name','capital','population','population_proper','search_vector',)
     list_display = ('id', 'citie', 'lat', 'lng', 'country', 'iso2', 'admin_name','capital','population','population_proper',)
-    #list_filter = ('citie', 'iso2','capital')
-    #ordering = ('citie',)
-    #readonly_fields = ('id',)
+    list_filter = ('citie', 'iso2','capital')
+    ordering = ('citie',)
+    readonly_fields = ('id',)
     resource_class = CitiesResource
 
 @admin.register(CitiesSearchWord)

@@ -1,10 +1,12 @@
 # server/cities/signals.py
 
+#Django
 from django.contrib.postgres.search import SearchVector
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.db import connection
 
+#Models
 from .models import Cities
 
 

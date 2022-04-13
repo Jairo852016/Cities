@@ -1,3 +1,5 @@
+#Mapping Elasticsearch
+
 ES_INDEX = 'citie'
 
 ES_MAPPING = {
@@ -29,10 +31,10 @@ ES_MAPPING = {
             'type': 'keyword',
         },
         'population': {
-            'type': 'integer',
+            'type': 'float',
         },
         'population_proper': {
-            'type': 'integer',
+            'type': 'float',
         },
         'all_text': {
             'type': 'text',

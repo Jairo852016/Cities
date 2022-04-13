@@ -18,7 +18,7 @@
       "model": "cities.Cities",
         "fields": {
           "id": "21e40285-cec8-417c-9a26-12a348b7fa3a",
-          "citie": "Medellín",
+          "citie": "Medellín1",
           "lat": 6.2447,
           "lng": -75.5748,
           "country": "Colombia2",
@@ -33,12 +33,12 @@
       "model": "cities.Cities",
       "fields": {
             "id": "4b3337b7-7dc1-41ae-9f41-027ead4de652",
-            "citie" : "Bogota",
+            "citie" : "Bogota2",
             "lat" : "4.6126",
             "lng" : "-74.0705",
             "country" : "Colombia1",
             "iso2" : "CO",
-            "admin_name" : "Bogotáaaaaaa", 
+            "admin_name" : "Bogota", 
             "capital" : "primary",
             "population": 9464000,
             "population_proper": 7963000
@@ -48,7 +48,7 @@
       "model": "cities.Cities",
         "fields": {
           "id": "444337b7-7dc1-41ae-9f41-027ead4de652",
-          "citie": "Medellín",
+          "citie": "Medellín2",
           "lat": 6.2447,
           "lng": -75.5748,
           "country": "Colombia",

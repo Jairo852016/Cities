@@ -1,7 +1,8 @@
 # server/cities/models.py
 
-import uuid
 
+import uuid
+#Django
 from django.contrib.postgres.indexes import GinIndex 
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVectorField, TrigramSimilarity
 from django.db import models
@@ -24,7 +25,13 @@ class Cities(models.Model):
     id = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False
     )
-    citie = models.CharField(max_length=255)
+    citie = models.CharField(
+        max_length=255, 
+        unique=True,
+        error_messages={
+            'unique':'A city already exists'
+        }    
+    )
     lat = models.DecimalField(
         decimal_places=4, max_digits=10, null=True, blank=True
     )
@@ -35,8 +42,14 @@ class Cities(models.Model):
     iso2 = models.CharField(max_length=3)
     admin_name = models.CharField(max_length=255)
     capital= models.CharField(max_length=255)
-    population= models.IntegerField(null=True, blank=True)
-    population_proper= models.IntegerField(null=True, blank=True)
+    population= models.DecimalField(
+        decimal_places=2, max_digits=10, null=True, blank=True
+    )
+    #models.IntegerField(null=True, blank=True)
+    population_proper= models.DecimalField(
+        decimal_places=2, max_digits=10, null=True, blank=True
+    )
+    #models.IntegerField(null=True, blank=True)
     search_vector = SearchVectorField(null=True, blank=True)
     objects = CitiesQuerySet.as_manager()
 
@@ -70,3 +83,4 @@ class CitiesSearchWord(models.Model):
 
     def __str__(self):
         return self.word
+

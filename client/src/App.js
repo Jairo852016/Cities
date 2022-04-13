@@ -7,6 +7,10 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes,Link } from 'react-router-dom';
 
 import { Form, Button,Col, Container, Row } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.css';
+//import BootstrapTable from 'react-bootstrap-table-next';
+//import paginationFactory from 'react-bootstrap-table2-paginator';
 
 import ResultList from './components/ResultList';
 import Search from './components/Search';
@@ -32,18 +36,8 @@ function App () {
     }
   };
 
-  
-  const [archivos, setArchivos] = useState([]);
-  const subirArchivos=e=>{
-    setArchivos(e);
-    console.log(e);
-  }
-  const insertarArchivos=async()=>{
-    const f =new FormData();
-    f.append("files", archivos[0])
-    console.log(f);
 
-  }
+
 
   function Home() {
     return (
@@ -58,19 +52,12 @@ function App () {
   
   function Cargar() {
     return (
-      <Form >
-        <Container className='pt-3'>
-          <Form.Label>Input CSV</Form.Label>
-          <Row>
-            <Col lg={4}>
-            <Form.Control type="file" name='files' onChange={(e) => subirArchivos(e.target.files)} />
-            <br/><br/>
-          <Button type='submit' variant='primary' onClick={() => insertarArchivos()}>Insert File</Button>
-            
-            </Col>
-          </Row>
-        </Container>
-       </Form>
+      <div>
+      <h1>Cities</h1>
+       <p className='lead'>
+         Results all Cities pagination.
+       </p>
+   </div>
    
     );
   }
@@ -103,7 +90,7 @@ function App () {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/cargar">Cargar</Link>
+          <Link to="/grid">Grid</Link>
         </li>
         <li>
           <Link to="/busqueda">Busqueda</Link>
@@ -121,7 +108,7 @@ function App () {
       */}
       <Routes>
         <Route exact path='/' element={<Home/>}></Route>
-        <Route exact path='/cargar' element={<Cargar/>}></Route>
+        <Route exact path='/grid' element={<Cargar/>}></Route>
         <Route exact path='/busqueda' element={<Busqueda/>}></Route>
       </Routes>
     </div>

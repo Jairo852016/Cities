@@ -28,10 +28,11 @@ services:
     volumes:
       - elasticsearch:/usr/share/elasticsearch/data
 
-  server:
+  django: &django
     build:
       context: ./server
-    container_name: server
+    
+    image: local_django
     depends_on:
       - database
       - elasticsearch
@@ -45,22 +46,68 @@ services:
       - ES_HOSTS=http://elasticsearch:9200
     command: [ "bash", "start.sh" ]
     ports:
-      - 8003:8000
+      - 8000
     volumes:
       - ./server:/usr/src/app
+      - static:/usr/src/app/static
+  
 
+  redis:
+    image: redis:3.2
+
+  celeryworker:
+    <<: *django
+    image: local_celeryworker
+    depends_on:
+      - redis
+      - database 
+    ports: []
+    command: [ "bash", "worker.sh" ]
+    #/start-celeryworker
+
+  celerybeat:
+    <<: *django
+    image: local_celerybeat
+    depends_on:
+      - redis
+      - database
+    ports: []
+    command: [ "bash", "beat.sh" ]
+    #/start-celerybeat
+  
+  flower:
+    <<: *django
+    image: local_flower
+    ports:
+      - "5555:5555"
+    command: [ "bash", "flower.sh" ]
+  
   client:
     build:
       context: ./client
     command: [ "npm", "start" ]
     container_name: client
     depends_on:
-      - server
+      - django
     ports:
       - 3000:3000
     volumes:
       - ./client:/usr/src/app
 
+  reverse-proxy:
+    build:
+      context: ./reverse-proxy
+    container_name: reverse-proxy
+    depends_on:
+      - django
+      - client
+    ports:
+      - 8003:80
+    restart: always
+    volumes:
+      - static:/usr/src/app/static
+  
 volumes:
   database:
   elasticsearch:
+  static:
