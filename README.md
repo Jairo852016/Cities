@@ -11,7 +11,7 @@
     * Nginx
     * Docker
 
-![](clou.JPG)
+![](clou1.JPG)
 
 
 ## Installation guide
