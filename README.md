@@ -95,6 +95,11 @@ You can also look at pagination in a Django class-based view
 
 ```
 
+for mail tests run the following command
+
+```sh
+   docker-compose exec django python manage.py test
+```
 
 
 
