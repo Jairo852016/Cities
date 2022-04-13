@@ -1,7 +1,7 @@
 
 # Project Cities 
 > Project that indexes a CSV file to PostgreSQL and Elasticsearch.
-[![LinkedIn][linkedin-shield]][linkedin-url]
+
 
 ## Installation guide
 
@@ -82,5 +82,9 @@
             ├── worker.sh
             └── start.sh
 
+## Contact
 
-[linkedin-url]: https://www.linkedin.com/in/jairo-perez-502211102/
+Jairo Pérez – [@TuTwitter](https://twitter.com/jairo85cd1) 
+
+[https://github.com/Jairo852016/Cities](https://github.com/Jairo852016/Cities)
+[https://www.linkedin.com/in/jairo-perez-502211102/](https://www.linkedin.com/in/jairo-perez-502211102/
