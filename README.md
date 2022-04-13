@@ -69,9 +69,25 @@ We enter the data in the csv data model and the data begins to be registered in 
 
 after finishing the load in the database, start with the indexing in Elasticsearch
 
+To start validating the searches can be seen at the following address
 
+```sh
+    http://localhost:8003/busqueda
 
+```
+To review the paginated data return you can enter the following url
 
+```sh
+    http://localhost:8003/api/v1/cities/pg-citiespag
+
+```
+
+It can be seen in the response that sends the data with the field of the next and the previous
+
+```sh
+   http://localhost:8003/api/v1/cities/pg-citiespag/?page=2
+
+```
 
 
 
