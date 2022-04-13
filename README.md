@@ -88,6 +88,11 @@ It can be seen in the response that sends the data with the field of the next an
    http://localhost:8003/api/v1/cities/pg-citiespag/?page=2
 
 ```
+for mail tests run the following command
+
+```sh
+   docker-compose exec django python manage.py test
+```
 
 
 
