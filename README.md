@@ -86,5 +86,5 @@
 
 Jairo Pérez – [@TuTwitter](https://twitter.com/jairo85cd1) 
 
-[https://github.com/Jairo852016/Cities](https://github.com/Jairo852016/Cities)
-[https://www.linkedin.com/in/jairo-perez-502211102/](https://www.linkedin.com/in/jairo-perez-502211102/
+[Project Link](https://github.com/Jairo852016/Cities)
+[Linkedin](https://www.linkedin.com/in/jairo-perez-502211102/
