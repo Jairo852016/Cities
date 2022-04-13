@@ -1,9 +1,27 @@
 
 # Project Cities 
-> Project that indexes a CSV file to PostgreSQL and Elasticsearch.
+> Project that indexes a CSV file to PostgreSQL and Elasticsearch. A view was also generated in React.js and in the Django Templates.
+
+* Used tools
+    * Python
+    * postgreSQL
+    * ElasticSearch
+    * React.js
+    * Celery
+    * Nginx
+    * Docker
+
+
 
 
 ## Installation guide
+
+Start cloning the repository:
+
+```sh
+ git clone https://github.com/Jairo852016/Cities
+
+```
 
 ## Project Organization
     
@@ -86,5 +104,6 @@
 
 Jairo Pérez – [@TuTwitter](https://twitter.com/jairo85cd1) 
 
-[Project Link](https://github.com/Jairo852016/Cities)
-[Linkedin](https://www.linkedin.com/in/jairo-perez-502211102/
+[https://github.com/Jairo852016/Citie](https://github.com/Jairo852016/Cities)
+
+[https://www.linkedin.com/in/jairo-perez-502211102/](https://www.linkedin.com/in/jairo-perez-502211102/)

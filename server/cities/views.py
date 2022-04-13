@@ -30,7 +30,7 @@ import csv
 import pathlib 
 
 #taks
-from cities.taskapp.task import sleep_for
+from cities.taskapp.task import sleep_for, handle_Elastic
 
 
 
@@ -177,7 +177,7 @@ def upload(request):
                     )
                     c.save()
         sleep_for.delay()
-        #handle_Elastic()
+        handle_Elastic()
     return render(request, 'cities/upload.html', context)
 
 
