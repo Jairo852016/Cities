@@ -231,14 +231,14 @@ class ESViewTests(APITestCase):
         self.assertEquals('Antioquia <mark>dos</mark> tres cuatro', response.data[0]['admin_name'])
 
 #Test suggest words mistakes
-    def test_suggests_words_for_spelling_mistakes(self):
-        response = self.client.get('/api/v1/cities/es-cities-search-words/?query=Bogati')
-        # Suggestions are: "Bogati" (freq=2) 
-        #print(response.data)
-        self.assertEqual(1, len(response.data))
-        self.assertEqual('bogota', response.data[0]['word'])
+   # def test_suggests_words_for_spelling_mistakes(self):
+   #     response = self.client.get('/api/v1/cities/es-cities-search-words/?query=Bogati')
+   #     # Suggestions are: "Bogati" (freq=2) 
+   #     #print(response.data)
+   #     self.assertEqual(1, len(response.data))
+   #     self.assertEqual('bogota', response.data[0]['word'])
         
 
-    def tearDown(self):
-        self.mock_constants.stop()
-        self.connection.indices.delete(index=self.index)
+    #def tearDown(self):
+    #    self.mock_constants.stop()
+    #    self.connection.indices.delete(index=self.index)

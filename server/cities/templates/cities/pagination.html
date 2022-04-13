@@ -1,0 +1,48 @@
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>City</th>
+        <th>lat</th>
+        <th>Lng</th>
+        <th>Country</th>
+        <th>iso2</th>
+        <th>admin_name</th>
+        <th>capital</th>
+        <th>population</th>
+        <th>population_proper</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for citie in object_list %}
+        <tr>
+          <td>{{ citie.citie }}</td>
+          <td>{{ citie.lat }}</td>
+          <td>{{ citie.lng }}</td>
+          <td>{{ citie.country }}</td>
+          <td>{{ citie.iso2 }}</td>
+          <td>{{ citie.admin_name }}</td>
+          <td>{{ citie.capital }}</td>
+          <td>{{ citie.population }}</td>
+          <td>{{ citie.population_proper }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <ul class='pager'
+    <li>
+        {% if page_obj.has_previous %}
+        <a href="?page={{page_obj.previous_page_number}}"> Previous </a>
+        {% endif %}
+    </li>
+    <li>
+      {% if page_obj.has_next %}
+        <a href="?page={{page_obj.next_page_number}}">Next </a>
+      {% endif %}
+    </li>
+  </ul>         
+
+
+
+  
+ 

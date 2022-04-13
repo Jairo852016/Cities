@@ -88,6 +88,13 @@ It can be seen in the response that sends the data with the field of the next an
    http://localhost:8003/api/v1/cities/pg-citiespag/?page=2
 
 ```
+You can also look at pagination in a Django class-based view
+
+```sh
+   http://localhost:8003/pagination/
+
+```
+
 
 
 

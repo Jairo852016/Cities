@@ -18,7 +18,7 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
-from cities.views import upload
+from cities.views import upload,CitieListView
 #from django.conf.urls.static import static
 
 import debug_toolbar
@@ -26,6 +26,7 @@ import debug_toolbar
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("upload/",upload, name="upload"),
+    path("pagination/",CitieListView.as_view()),
     path('api/v1/cities/', include('cities.urls')),
 ]
 

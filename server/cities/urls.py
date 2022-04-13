@@ -6,7 +6,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 #Views
-from .views import CitiesView, CitiesSearchWordsView, ESCitiesView , ESCitiesSearchWordsView,CitiesPaginationView
+from .views import CitiesView, CitiesSearchWordsView, ESCitiesView , ESCitiesSearchWordsView,CitiesPaginationView,CitieListView
 from . import views
 
 urlpatterns = [
@@ -17,7 +17,8 @@ urlpatterns = [
     path('cities-search-words/',ESCitiesSearchWordsView.as_view() ), 
     path('es-cities-search-words/', ESCitiesSearchWordsView.as_view()),
     path('pg-cities-search-words/', CitiesSearchWordsView.as_view()),
-    path("upload/",views.upload, name="upload"),
+    #path("upload/",views.upload, name="upload"),
+    #path("pagination/",CitieListView.as_view()),
 ]
 
 if settings.DEBUG:

@@ -15,6 +15,7 @@ from django.urls import reverse_lazy
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render
 from django.conf import settings 
+from django.views.generic import ListView
 
 #Model Serializer Filter
 from .models import Cities, CitiesSearchWord
@@ -42,6 +43,13 @@ class CitiesView(ListAPIView):
 
     def filter_queryset(self, request):
         return super().filter_queryset(request)[:100]
+
+class CitieListView(ListView):
+    model = Cities
+    template_name = 'cities/pagination.html'  # Default: <app_label>/<model_name>_list.html
+    paginate_by = 10
+
+
 
 class CitiesPaginationView(ListAPIView):
     queryset = Cities.objects.all()
