@@ -75,7 +75,7 @@ class ESCitiesView(APIView):
         if query:
             q['should'] = [
                 Match(citie={'query': query, 'boost': 3.0}),
-                Match(admin_name={'query': query, 'boost': 2.0})
+                Match(admin_name={'query': query, 'boost': 3.0})
             
             ]
             q['minimum_should_match'] = 1
@@ -89,7 +89,7 @@ class ESCitiesView(APIView):
             search = search.highlight('citie', 'admin_name') 
 
         # Build filter clause.
-        if country:
+        if country!="":
             q['filter'].append(Term(country=country))
 
         response = search.query('bool', **q).params(size=100).execute()
@@ -145,11 +145,13 @@ def upload(request):
         name = fs.save(uploaded_file.name, uploaded_file)
         context['url'] = fs.url(name)
         #print( context['url'])
-        data_path = pathlib.Path(settings.BASE_DIR / 'media' / uploaded_file.name )
-        
+        data_path = pathlib.Path(settings.BASE_DIR / 'media' / name )
+        print(name)
         with open(data_path, "r") as csv_file:
             data = list(csv.reader(csv_file, delimiter=","))
+           
             for row in data[1:]:
+                print(row[3])
                 queryset = Cities.objects.all()
                 d = queryset.filter( citie=row[0])
                 if row[7]=="":

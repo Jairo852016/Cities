@@ -12,7 +12,7 @@ function Search ({ search }) {
     const [isLoading, setLoading] = useState(false); // new
     const [options, setOptions] = useState([]); // new
     const citiesSearchWord = async query => {
-        if (query.length < 3) {
+        if (query.length < 2) {
           setLoading(false);
           setOptions([]);
         } else {
